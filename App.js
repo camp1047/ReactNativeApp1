@@ -12,9 +12,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomePage} />
-        <Stack.Screen name="About" component={AboutPage} />
-        <Stack.Screen name="List" component={ListPage} />
+        <Stack.Screen name="Home" component={HomePage}
+         options={{ headerShown: false }} 
+         />
+        <Stack.Screen name="About" component={AboutPage} 
+        options={{ headerShown: false }} 
+        />
+        <Stack.Screen name="List" component={ListPage} 
+        options={{ headerShown: false }} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -23,7 +29,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
     // paddingTop: 48,
