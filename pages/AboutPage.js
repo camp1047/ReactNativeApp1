@@ -1,108 +1,125 @@
-import { SafeAreaView,StyleSheet,Text,View,Image,ScrollView,Button,Platform } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  ScrollView,
+  Platform,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { BlurView } from '@react-native-community/blur';
-
-
 
 export default function AboutPage({ navigation }) {
   return (
-    <LinearGradient
-      colors={['#B2CACF', '#87B7CC', '#59A5CA']}
-      start={{ x: 0, y: 0 }} 
-      end={{ x: 1, y: 1 }}   
-      style={styles.gradient}
+    <ImageBackground
+      source={require("../assets/girl.png")}
+      style={styles.imageBackground}
     >
-      <SafeAreaView>
-      <Text style={styles.headerText} onPress={() => navigation.goBack()}>
-          Back
-        </Text>
-        <ScrollView style={styles.scrollContainer}>
-        <View style={styles.content}>
-        <View style={styles.imageRow}>
-          <Image source={require("../assets/girl.png")} style={styles.image} />
-          <Image source={require("../assets/dog.png")} style={styles.image} />
-          <Image source={require("../assets/dog.png")} style={styles.image} />
-          </View>
-          <Text style={styles.title}>About Us</Text>
-          <Text style={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+      <LinearGradient
+        colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.0)"]}
+        start={{ x: 0, y: 1 }}
+        end={{ x: 0, y: -0.5 }}
+        style={styles.gradientOverlay}
+      />
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+      <SafeAreaView>
+        <View style={styles.buttonContainer}>
+          <Text style={styles.buttonText} onPress={() => navigation.goBack()}>
+            Back
           </Text>
         </View>
+
+        {/* Title outside ScrollView */}
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>About Us</Text>
+        </View>
+
+        <ScrollView style={styles.scrollContainer}>
+          <View style={styles.content}>
+            <View style={styles.sidetoside}>
+              <Text style={styles.description}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </Text>
+              <Text style={styles.description2}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </Text>
+            </View>
+          </View>
         </ScrollView>
       </SafeAreaView>
-    </LinearGradient>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  gradient: {
+  imageBackground: {
     flex: 1,
+    justifyContent: "center",
   },
-  container: {
-    flex: 1,
-    // backgroundColor: "#fff",
+  gradientOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   scrollContainer: {
-    paddingVertical: Platform.OS === 'ios' ? 10 : 50,
+    paddingVertical: Platform.OS === "ios" ? 40 : 80,
     paddingHorizontal: 15,
   },
   content: {
     alignItems: "center",
     marginBottom: 20,
   },
-  headerText: {
-    top: Platform.OS === 'ios' ? 16 : 50,
-    color: '#fff',
-    fontSize: 18,
-    marginBottom: 20,
-    alignSelf: 'flex-start',
-    paddingLeft: 15,
+  buttonContainer: {
+    position: "absolute",
+    top: Platform.OS === "ios" ? 40 : 60,
+    backgroundColor: "red",
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    justifyContent: "center",
+    alignItems: "center",
     zIndex: 10,
   },
-  imageRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 20,
-    gap: 20,
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    textAlign: "center",
   },
-  image: {
-    borderColor: "grey",
-    borderWidth: 2,
-    width: Platform.OS === 'ios' ? 110 : 100,
-    height: 190,
-    borderRadius: 6, 
-    marginBottom: 20,
-    backgroundColor: "#fff",
+  titleContainer: {
+    marginTop: Platform.OS === "ios" ? 80 : 100,
+    alignItems: "center",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 10,
-    color: "#333",
+    color: "#fff",
+  },
+  sidetoside: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    width: '100%', 
+    height: '100%',
+    paddingHorizontal: 20, 
+    gap: 10,
   },
   description: {
     fontSize: 16,
-    lineHeight: 24,
-    textAlign: "center",
+    lineHeight: 17,
+    textAlign: "left",
     color: "#fff",
     marginBottom: 15,
+    flex: 1, 
   },
-  buttonContainer: {
-    marginTop: 20,
-    alignItems: "center",
+  description2: {
+    fontSize: 16,
+    lineHeight: 17,
+    textAlign: "left",
+    color: "#fff",
+    marginBottom: 15,
+    flex: 1, 
   },
 });
