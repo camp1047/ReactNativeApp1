@@ -1,15 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  FlatList,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  Image,
-  Platform,
-  Alert,
-} from "react-native";
+import { FlatList, SafeAreaView, StyleSheet, Text, View, Pressable, Image, Platform, Alert } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -37,9 +27,11 @@ export default function ListPage({ navigation }) {
         </View>
         <View style={styles.listContainer}>
           <FlatList
+          //requires a flatlist
             data={data}
             renderItem={({ item }) => (
               <Pressable
+              //requires a pressable
                 style={({ pressed }) => [
                   styles.item,
                   { backgroundColor: pressed ? "#3b5998" : "#000" },
@@ -60,7 +52,9 @@ export default function ListPage({ navigation }) {
                 </LinearGradient>
                 <View style={styles.infoContainer}>
                   <View style={styles.sideContainer}>
-                    <Text style={styles.itemText}>{item.title}</Text>
+                    <Text style={styles.itemText}
+                    //requires a text
+                    >{item.title}</Text>
                     <Text style={styles.itemDescriptionText}>
                       {item.description}
                     </Text>

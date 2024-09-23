@@ -130,10 +130,14 @@ export default function HomePage({ navigation }) {
         />
 
         <View style={styles.content}>
-          <Text style={styles.outlineText}>Wreck City</Text>
+          
+          <Text style={styles.outlineText
+            //requires text
+          }>Wreck City</Text>
           {/* <Text style={styles.text}>Welcome Back</Text> */}
 
           <TouchableOpacity
+          //requires button though i did ask about touchableopacity being used and got the okay
             onPress={() => navigation.navigate("About")}
             style={styles.button1Container}
             activeOpacity={1}

@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export default function AboutPage({ navigation }) {
   return (
+    //requires image
     <ImageBackground
       source={require("../assets/guy3.png")}
       style={styles.imageBackground}
@@ -12,7 +13,7 @@ export default function AboutPage({ navigation }) {
         start={{ x: 0, y: 0.5 }}
         end={{ x: 0, y: 0 }}
         style={styles.gradientOverlay}
-      />
+        />
 
       <SafeAreaView>
         <View style={styles.buttonContainer}>
@@ -34,8 +35,12 @@ export default function AboutPage({ navigation }) {
             <Text style={styles.al}>Hired</Text>
           </View>
 
+       
           <View style={styles.desc}>
-            <ScrollView style={styles.scrollContainer}>
+            < ScrollView 
+            style={styles.scrollContainer}
+            //requires a scrollview 
+            >
               <View style={styles.sidetoside}>
                 <Text style={styles.description}>
                   Dean grew up in a tough neighborhood, where survival often
