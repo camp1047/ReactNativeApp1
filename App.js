@@ -24,7 +24,7 @@ export default function App() {
         options={{ headerShown: false }} 
         />
         <Stack.Screen name="List" component={ListPage} 
-        options={{ headerShown: false }} 
+        options={{ headerShown: false }} //i just didn't like how it looked and wanted to make a simple back button without the header
         />
       </Stack.Navigator>
     </NavigationContainer>
